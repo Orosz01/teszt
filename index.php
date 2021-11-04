@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require 'db.inc.php';
+require 'includes/db.inc.php';
 
-require 'functions.inc.php';
+require 'includes/functions.inc.php';
 
 require 'model/Ulesrend.php';
 
@@ -13,9 +13,14 @@ $link="belepes.php";
 $tanulo = new Ulesrend;
 if(!empty($_SESSION["id"])){
     $title=$_SESSION["nev"].": Kilépés";
-    $link="index.php?kilep=1";
+    $action = "kilepes";
 }
-
+else{
+    $title = "Belépés"
+    $action = "belepes"
+}
+if(isset($_REQUEST['page'])){
+    
 $menupontok = array('index' => "Főoldal", 'ulesrend' => "Ülésrend", $link => $title);
 
 $page = "index";
@@ -27,13 +32,13 @@ if(isset($_REQUEST['page'])){
 }
 $title = $menupontok[$page];
 
-include 'htmlheader.inc.php';
+include 'includes/htmlheader.inc.php';
 
 ?>
 <body>
 <?php
 
-include 'menu.inc.php';
+include 'includes/menu.inc.php';
 
 $page ='index';
 
