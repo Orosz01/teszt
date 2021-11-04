@@ -14,6 +14,7 @@
         if(isset($_POST['user'])){
         echo $loginError;
       }
+      
       ?>
       <form action="belepes.php" method="post">
         Felhasználónév: <input type="text" name="user">
