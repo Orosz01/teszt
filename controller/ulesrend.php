@@ -1,13 +1,5 @@
 <?php
-session_start();
-require 'db.inc.php';
 
-require 'functions.inc.php';
-
-require 'model/Ulesrend.php';
-$tanulo = new Ulesrend;
-
-//form feldolgozása
 if(!empty($_POST["hianyzo_id"])){
   $sql="INSERT INTO hianyzok VALUES(".$_POST["hianyzo_id"].")";
   $result=$conn->query($sql);
@@ -40,3 +32,5 @@ if ($result->num_rows > 0) {
 $en=0;
 if(!empty($_SESSION['id']))$en=$_SESSION['id'];
 $tanar=15;
+
+include 'view/ulesrend.php';
