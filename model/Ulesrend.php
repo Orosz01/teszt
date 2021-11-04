@@ -43,6 +43,13 @@ class Ulesrend{
     public function get_felhasznalo() {
         return $this->felhasznalo;
     }
+    public function tanulokListaja($conn){
+        $lista = array();
+        $sql = "SELECT id FROM ulesrend";
+        if ($result->num_rows > 0 ){
+            $row = $result->fetch_assoc();
+
+    }
     
 }
 //$tanulo->get_id();
