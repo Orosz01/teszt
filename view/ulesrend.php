@@ -16,10 +16,9 @@
     <select name="hianyzo_id">
       <?php
 
-      $result = tanlista($conn);
       
-      if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+      if ($tanuloIdk) {
+        foreach($tanuloIdk as $row) {
           $tanulo->set_user($row['id'], $conn);
          if($tanulo->get_nev() and !in_array($row['id'],$hianyzok))echo '<option value="'.$row['id'].'">'.$tanulo->get_nev().'</option>';
         }
@@ -34,11 +33,9 @@
     </th>
   </tr>
     <?php
-    $sql = "SELECT id,nev,sor,oszlop From ulesrend";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-      $sor = 0;
-      while($row = $result->fetch_assoc()) {
+   if ($tanuloIdk) {
+    $sor = 0;
+    foreach($tanuloIdk as $row) {
         $tanulo->set_user($row['id'], $conn);
         if($tanulo->get_sor() != $sor){
           if($sor != 0) echo '</tr>';

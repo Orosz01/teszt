@@ -7,10 +7,15 @@ require 'includes/functions.inc.php';
 
 require 'model/Ulesrend.php';
 
-$title="Belépés";
-$link="belepes.php";
+
 
 $tanulo = new Ulesrend;
+
+$page = 'index';
+if(!empty($_REQUEST['action'])) {
+	if($_REQUEST['action'] == 'kilepes') session_unset();
+}
+
 if(!empty($_SESSION["id"])){
     $title=$_SESSION["nev"].": Kilépés";
     $action = "kilepes";
@@ -20,33 +25,24 @@ else{
     $action = "belepes"
 }
 if(isset($_REQUEST['page'])){
+}
     
 $menupontok = array('index' => "Főoldal", 'ulesrend' => "Ülésrend", $link => $title);
 
-$page = "index";
-
 if(isset($_REQUEST['page'])){
     if(file_exists('controller/'.$_REQUEST['page'].'.php')){
         $page = $_REQUEST['page'];
     }
 }
+
+$menupontok = array('index' => "Főoldal",
+                    'ulesrend' => "Ülésrend",
+                    'felhasznalo' => $title);
 $title = $menupontok[$page];
 
 include 'includes/htmlheader.inc.php';
-
-?>
-<body>
-<?php
-
-include 'includes/menu.inc.php';
-
-$page ='index';
-
-if(isset($_REQUEST['page'])){
-    if(file_exists('controller/'.$_REQUEST['page'].'.php')){
-        $page = $_REQUEST['page'];
-    }
-}
 include 'controller/'.$page.'.php';
 ?>
+<body>
+
 </body>

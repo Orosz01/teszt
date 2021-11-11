@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'db.inc.php';
+require 'includes/db.inc.php';
 
-require 'functions.inc.php';
+require 'includes/functions.inc.php';
 
 require 'model/Ulesrend.php';
 $tanulo = new Ulesrend;
@@ -42,11 +42,11 @@ if(!empty($_SESSION['id']))$en=$_SESSION['id'];
 $tanar=15;
 
 $title="Ülésrend";
-include 'htmlheader.inc.php';
+include 'includes/htmlheader.inc.php';
 ?>
 <body>
 <?php
-    include 'menu.inc.php';
+    include 'includes/menu.inc.php';
     ?>
   <table>
   <tr>
