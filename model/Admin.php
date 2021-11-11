@@ -1,7 +1,7 @@
 <?php
 
 require '../includes/db.inc.php';
-require '';
+require 'Kijeloltfelhasznalok.php';
 class Admin extends Kijeloltfelhasznalok{
 
     function _construct(){
@@ -9,8 +9,8 @@ class Admin extends Kijeloltfelhasznalok{
     }
 }
 $admin = new Admin();
-$admin -> set_id();
-
+$admin -> set_id(1,$conn);
+echo $admin->get_id();
 //$tanulo->get_id();
 
 ?>

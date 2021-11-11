@@ -8,7 +8,7 @@ class Ulesrend{
         $this->tablanev = $tablanev;
     }
 
-    protected function set_id($id, $conn){
+    public function set_id($id, $conn){
         //lekerjuk
         $sql = " SELECT id FROM $this->tablanev Where id = $id ";
         $sql .= " WHERE id = $id ";
@@ -18,7 +18,7 @@ class Ulesrend{
            $row = $result->fetch_assoc();
            $this-> id = $row['id'];
         }else{
-            $sql = "INSERT INTO adminok ($id)";
+            $sql = "INSERT INTO $this->tablanev VALUES ($id)";
             if ($result = $conn-> query($sql)){
                 $this-> id = $id;
             }
@@ -29,10 +29,10 @@ class Ulesrend{
         echo "Error" . $sql . "<br>" . $con ->error;
     }
 }
-    protected function get_id() {
+  public function get_id() {
         return $this->id;
     }
-    protected function adminlista($conn){
+  public function adminlista($conn){
         $lista = array();
         $sql = "SELECT id FROM $this->tablanev";
         if($result = $conn-> query($sql)){
