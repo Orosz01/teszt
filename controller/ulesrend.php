@@ -1,12 +1,14 @@
 <?php
+
 require 'model/Hianyzo.php';
+
 require 'model/Admin';
 
 $hianyzo = new Hianyzo();
 
 if(!empty($_POST["hianyzo_id"])){
  $hianyzo->set_id($_POST["hianyzo_id"],$conn);
-  
+}
 elseif(!empty($_GET['nem_hianyzo'])){
  $hianyzo->remove_id($_GET['nem_hianyzo'],$conn);
 }
