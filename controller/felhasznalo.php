@@ -21,5 +21,5 @@ if ($result->num_rows > 0) {
 else $loginError.='Érvénytelen felhasználónév';
   }
 }
-include 'view/belepes.php'
+include 'belepes.php';
     ?>

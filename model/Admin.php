@@ -1,16 +1,14 @@
 <?php
 
-require '../includes/db.inc.php';
-require 'Kijeloltfelhasznalok.php';
+require_once 'Kijeloltfelhasznalok.php';
+
 class Admin extends Kijeloltfelhasznalok{
 
     function _construct(){
-        $this->tablanev = 'adminok'
+        $this->tablanev = 'adminok';
     }
 }
-$admin = new Admin();
-$admin -> set_id(1,$conn);
-echo $admin->get_id();
+
 //$tanulo->get_id();
 
 ?>

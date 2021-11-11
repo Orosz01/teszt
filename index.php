@@ -17,13 +17,11 @@ if(!empty($_SESSION["id"])){
     $action = "kilepes";
 }
 else{
-    $title = "Belépés"
-    $action = "belepes"
+    $title = "Belépés";
+    $action = "belepes";
 }
 if(isset($_REQUEST['page'])){
 }
-    
-$menupontok = array('index' => "Főoldal", 'ulesrend' => "Ülésrend", $link => $title);
 
 if(isset($_REQUEST['page'])){
     if(file_exists('controller/'.$_REQUEST['page'].'.php')){
@@ -37,8 +35,12 @@ $menupontok = array('index' => "Főoldal",
 $title = $menupontok[$page];
 
 include 'includes/htmlheader.inc.php';
-include 'controller/'.$page.'.php';
 ?>
 <body>
+<?php
 
+include 'includes/menu.inc.php';
+include 'controller/'.$page.'.php';
+
+?>
 </body>

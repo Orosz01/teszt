@@ -2,7 +2,7 @@
 
 require 'model/Hianyzo.php';
 
-require 'model/Admin';
+require 'model/Admin.php';
 
 $hianyzo = new Hianyzo();
 
@@ -13,7 +13,7 @@ elseif(!empty($_GET['nem_hianyzo'])){
  $hianyzo->remove_id($_GET['nem_hianyzo'],$conn);
 }
 
-$hianyzok = $hianyzo-> lista($con);
+$hianyzok = $hianyzo-> lista($conn);
 
 $admin = new Admin();
 
