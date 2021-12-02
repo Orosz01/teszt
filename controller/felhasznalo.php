@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
    if(md5($_POST['pw'])==$tanulo->get_jelszo()){
      $_SESSION['id']=$row['id'];
      $_SESSION['nev']=$tanulo->get_nev();
-     header('Location:index.php?page.ulesrend');
+     header('Location:index.php?page=ulesrend');
     exit();
     }
    else $loginError.='Érvényetelen jelszó';
@@ -21,5 +21,5 @@ if ($result->num_rows > 0) {
 else $loginError.='Érvénytelen felhasználónév';
   }
 }
-include 'belepes.php';
+include 'view/belepes.php';
     ?>

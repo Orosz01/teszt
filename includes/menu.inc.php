@@ -4,6 +4,7 @@
     foreach($menupontok as $key => $value){
         $active = '';
         if($_SERVER['REQUEST_URI'] == '/teszt/'.$key) $active = 'active';
+        if($key == 'felhasznalo') $key.='&action='.$action;
     ?>
     <div class="container-fluid <?php echo $active; ?>">
             <a class="navbar-brand" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>

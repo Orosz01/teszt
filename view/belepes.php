@@ -6,9 +6,11 @@
       <?php
       if(!empty($_SESSION['id'])){
         echo "Üdvözöljük ".$_SESSION['nev']."!";
-        echo '<form action="belepes.php" method="post">
+        ?>
+        <form action="belepes.php" method="get">
        <input type="submit" name="kilep" value="Kilépés">
-       </form>';
+       </form>
+       <?php
       }
       else {
         if(isset($_POST['user'])){

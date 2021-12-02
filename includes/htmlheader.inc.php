@@ -1,7 +1,4 @@
 <?php
- if (isset($_GET['kilep'])) {
-    session_unset();
- }
 
 ?>
 <!DOCTYPE html>
