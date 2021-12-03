@@ -23,16 +23,21 @@
          if($tanulo->get_nev() and !in_array($row,$hianyzok))echo '<option value="'.$row.'">'.$tanulo->get_nev().'</option>';
         }
     }
-      ?>
+
+    
+     ?>
+    
     </select><br>
     <input type="submit">
     <?php
         }}
     ?>
     </form>
+    
     </th>
   </tr>
     <?php
+    
    if ($tanuloIdk) {
     $sor = 0;
     foreach($tanuloIdk as $row) {
@@ -47,7 +52,7 @@
           $plusz = '';
           if(in_array($row, $hianyzok)) $plusz.= ' class="missing"';
           if($row == $en) $plusz.= ' id="me"';
-          if($row == $tanar) $plusz.= ' class="tanar" colspan="2"';
+         if($row == $tanar) $plusz.= ' class="tanar" colspan="2"';
           echo "<td".$plusz.">" . $tanulo->get_nev();
           if(!empty($_SESSION['id'])){
             if(in_array($_SESSION['id'],$adminok)){
@@ -61,7 +66,25 @@
       echo "0 results";
     }
     $conn->close();
-    ?>
+    
+    if(isset($_FILES["fileToUpload"])){
+      $target_dir = "uploads/";
+      
+      $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+      if (@move_uploaded_file($_FILES["fileToUpload"]["tmp_name"] , $target_file)){
+          echo "Profilkép feltöltve.";
+      }
+      }
+    ?> 
+       
     </table>
-</body>
+    <form action="index.php?page=ulesrend" method="post" enctype="multipart/form-data">
+       <br>Profilkép kiválasztása:
+        <input type="file" name = "fileToUpload" id = "fileToUpload">
+        <input type ="submit" value ="Upload Image" name="submit">
+    </form>
+    
+            <img src= <?php echo"$target_file " ?> >
+          
+    </body>
 <html>

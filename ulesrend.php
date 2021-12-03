@@ -2,9 +2,8 @@
 session_start();
 require 'includes/db.inc.php';
 
-require 'includes/functions.inc.php';
-
 require 'model/Ulesrend.php';
+
 $tanulo = new Ulesrend;
 
 //form feldolgozása
