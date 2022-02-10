@@ -11,7 +11,7 @@
       if(!empty($_SESSION['id'])){
         if(in_array($_SESSION['id'],$adminok)){
           ?>
-    <form action=index.php?page=ulesrend" method="post">
+    <form action="index.php?page=ulesrend" method="post">
     
     <select name="hianyzo_id">
       <?php
